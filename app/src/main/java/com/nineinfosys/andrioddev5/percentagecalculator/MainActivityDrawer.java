@@ -163,6 +163,7 @@ public class MainActivityDrawer extends AppCompatActivity implements TextWatcher
                     /*FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.containerView, new IdealWeightFragment()).commit();*/
                     Intent intent = new Intent(MainActivityDrawer.this, MainActivityDrawer.class);
+                    finish();
                     startActivity(intent);
                 }
 
