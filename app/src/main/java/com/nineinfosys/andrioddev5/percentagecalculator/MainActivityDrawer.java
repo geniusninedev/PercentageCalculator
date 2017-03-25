@@ -160,8 +160,7 @@ public class MainActivityDrawer extends AppCompatActivity implements TextWatcher
                 mDrawerLayout.closeDrawers();
 
                 if (menuItem.getItemId() == R.id.PercentageCalcualtor) {
-                    /*FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.containerView, new IdealWeightFragment()).commit();*/
+
                     Intent intent = new Intent(MainActivityDrawer.this, MainActivityDrawer.class);
                     finish();
                     startActivity(intent);
