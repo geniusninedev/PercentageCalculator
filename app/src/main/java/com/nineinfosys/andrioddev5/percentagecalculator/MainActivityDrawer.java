@@ -623,6 +623,7 @@ public class MainActivityDrawer extends AppCompatActivity implements TextWatcher
         try {
             percentageX2 = Double.parseDouble(edittextpercentageX2.getText().toString());
             percentageY2 = Double.parseDouble(edittextpercentageY2.getText().toString());
+
             //call percentagecalculator class for calculation
             percentageCalculator = new PercentageCalculator(percentageX2, percentageY2);
             resultTwo = percentageCalculator.percentCalculateTwo();

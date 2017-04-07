@@ -7,7 +7,7 @@
         <item
             android:id="@+id/PercentageCalcualtor"
             android:icon="@drawable/ic_percentage"
-            android:title="Percentage Calcualtor" />
+            android:title="Percentage Calculator" />
     </group>
 
     <item

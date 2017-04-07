@@ -375,14 +375,7 @@
                             android:inputType="number" />
 
                     </LinearLayout>
-                    <com.google.android.gms.ads.AdView
-                        android:id="@+id/adViewPercentageCalculator"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_alignParentBottom="true"
-                        ads:adSize="SMART_BANNER"
-                        ads:adUnitId="@string/banner_ad_unit_id"/>
+
                     <LinearLayout
                         android:id="@+id/percentagethirdlayout"
                         android:layout_width="match_parent"
@@ -448,6 +441,15 @@
                                 android:textStyle="bold" />
                         </LinearLayout>
                     </LinearLayout>
+                    <com.google.android.gms.ads.AdView
+                        android:id="@+id/adViewPercentageCalculator"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentBottom="true"
+                        ads:adSize="SMART_BANNER"
+                        android:layout_marginTop="5dp"
+                        ads:adUnitId="@string/banner_ad_unit_id"/>
                 </LinearLayout>
             </ScrollView>
         </FrameLayout>
