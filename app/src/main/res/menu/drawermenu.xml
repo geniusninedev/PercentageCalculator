@@ -2,13 +2,7 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:id="@+id/grp7" android:checkableBehavior="single" >
 
-        <item
-            android:id="@+id/PercentageCalcualtor"
-            android:icon="@drawable/ic_percentage"
-            android:title="Percentage Calculator" />
-    </group>
 
     <item
            android:id="@+id/Communicate"

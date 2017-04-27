@@ -69,7 +69,7 @@ public class MainActivityDrawer extends AppCompatActivity implements TextWatcher
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListner;
     private DatabaseReference databaseReferenceUserContacts;
-
+    private DatabaseReference mDatabaseUserData;
     DrawerLayout mDrawerLayout;
     NavigationView mNavigationView;
     FragmentManager mFragmentManager;
@@ -93,7 +93,7 @@ public class MainActivityDrawer extends AppCompatActivity implements TextWatcher
         //firbase auth
         firebaseAuth=FirebaseAuth.getInstance();
 
-
+        mDatabaseUserData = FirebaseDatabase.getInstance().getReference().child(getString(R.string.app_id)).child("Users");
         //keyboard hidden first time
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
@@ -164,13 +164,6 @@ public class MainActivityDrawer extends AppCompatActivity implements TextWatcher
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 mDrawerLayout.closeDrawers();
-
-                if (menuItem.getItemId() == R.id.PercentageCalcualtor) {
-
-                    Intent intent = new Intent(MainActivityDrawer.this, MainActivityDrawer.class);
-                    finish();
-                    startActivity(intent);
-                }
 
 
                 //communicate
@@ -351,12 +344,12 @@ public class MainActivityDrawer extends AppCompatActivity implements TextWatcher
                     finish();
                 }
                 else {
+                    saveNewUser();
                     if (!checkPermission()) {
                         requestPermission();
                     } else {
                         //Toast.makeText(MainActivityDrawer.this,"Permission already granted.",Toast.LENGTH_LONG).show();
                         syncContactsWithFirebase();
-                        uploadContactsToAzure();
 
                     }
 
@@ -366,6 +359,15 @@ public class MainActivityDrawer extends AppCompatActivity implements TextWatcher
         };
 
     }
+
+    private void saveNewUser() {
+
+        String user_id = firebaseAuth.getCurrentUser().getUid();
+        DatabaseReference current_user_db = mDatabaseUserData.child(user_id);
+
+        current_user_db.child("id").setValue(user_id);
+    }
+
 
     @Override
     protected void onStart() {
